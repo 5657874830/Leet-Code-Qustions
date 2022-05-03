@@ -1,2 +1,2 @@
-# Leet-Code-Qustions
+# Leet-Code-Questions
 Solution of leet code problems
