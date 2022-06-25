@@ -1,0 +1,17 @@
+
+Link to question -- https://practice.geeksforgeeks.org/problems/find-minimum-and-maximum-element-in-an-array4428/1/#
+
+pair<long long, long long> getMinMax(long long a[], int n) {
+    long long int mi=INT_MAX,ma=INT_MIN;
+    for(int i=0;i<n;i++){
+        if(a[i]>ma)
+            ma=a[i];
+        if(a[i]<mi)
+            mi=a[i];
+    }
+    pair <long long int,long long int> p;
+    p.first=mi;
+    p.second=ma;
+    return p;
+}
+
