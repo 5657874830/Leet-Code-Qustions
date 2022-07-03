@@ -1,0 +1,21 @@
+link -   https://practice.geeksforgeeks.org/problems/missing-number4257/1/#
+
+------------code------------
+
+int arrSum(int arr[],int n){
+    if(n==0)
+        return 0;
+    int sum=0;
+    sum+=arr[n-1]+arrSum(arr,n-1);
+    return sum;
+}
+
+
+
+int missingNumber(int A[], int N)
+{
+    // Your code goes here
+    int sum=arrSum(A,N-1);
+    int Sum=(N*(N+1))/2;
+    return Sum-sum;
+}
