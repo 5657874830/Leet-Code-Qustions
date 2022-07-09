@@ -1,0 +1,54 @@
+link - 
+
+---------------code---------------
+
+int firstOcc(int arr[],int s,int e,int x){
+    int mid,ans =-1;
+    while(s<=e){
+        mid=s+(e-s)/2;
+        if(arr[mid]==x){
+            ans = mid;
+            e = mid-1;
+            //ans=firstOcc(arr,0,mid-1,x);
+            // if(mid>ans && ans>=0)
+            //     return ans;
+            // else
+            //     return mid;
+        }
+        else if(arr[mid]<x)
+            s=mid+1;
+        else
+            e=mid-1;
+    }
+    return ans;
+} 
+int lastOcc(int arr[],int s,int e,int x){
+    int mid,ans=-1;
+    while(s<=e){
+        mid=s+(e-s)/2;
+        if(arr[mid]==x){
+            ans = mid;
+            s = mid +1;
+            //ans=firstOcc(arr,mid+1,e,x);
+            // if(mid>ans && ans>=0)
+            //     return mid;
+            // else
+            //     return ans;
+        }
+        else if(arr[mid]<x)
+            s=mid+1;
+        else
+            e=mid-1;
+    }
+    return ans;
+}  
+
+
+vector<int> find(int arr[], int n , int x )
+{
+    vector <int> ans;
+    ans.push_back(firstOcc(arr,0,n-1,x));
+    ans.push_back(lastOcc(arr,0,n-1,x));
+    return ans;
+    // code here
+}
