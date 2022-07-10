@@ -1,0 +1,47 @@
+link - https://practice.geeksforgeeks.org/problems/middle-of-three2926/1#
+
+-------------code-------------
+
+//Initial template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+//User function template for C++
+
+class Solution{
+  public:
+    int middle(int a, int b, int c){
+        //code here//Position this line where user code will be pasted.
+        // (a>b)?((b>c)?return b:return c):((a>c)?return a:return c);
+        // set <int> s;
+        // s.insert(a);
+        // s.insert(b);
+        // s.insert(c);
+        // int ans= s[1];
+        // return ans;
+        priority_queue <int> p;
+        p.push(a);
+        p.push(b);
+        p.push(c);
+        p.pop();
+        int ans=p.top();
+        return ans;
+    }
+};
+
+// { Driver Code Starts.
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int A,B,C;
+        cin>>A>>B>>C;
+        Solution ob;
+        cout<<ob.middle(A,B,C) <<"\n";
+    }
+    return 0;
+}  // } Driver Code Ends
