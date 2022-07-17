@@ -1,0 +1,36 @@
+link -  https://leetcode.com/problems/subsets-ii/
+
+------------code---------------
+
+class Solution {
+private:
+    bool find(vector<vector<int>>& ans,vector<int> output){
+        for(int i=0;i<ans.size();i++){
+            if(ans[i]==output)
+                return true;
+        }
+        return false;
+    }
+    void solve(vector<int> nums,int index,vector<int> output,vector<vector<int>>& ans){
+        if(index>=nums.size()){
+            sort(output.begin(),output.end());
+            if(!find(ans,output))
+            ans.push_back(output);
+            return ;
+        }
+//         Exclude
+        solve(nums,index+1,output,ans);
+//         Include
+        int number=nums[index];
+        output.push_back(number);
+        solve(nums,index+1,output,ans);
+    }    
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<vector<int>> ans;
+        int index=0;
+        vector<int> output;
+        solve(nums,index,output,ans);
+        return ans;
+    }
+};
